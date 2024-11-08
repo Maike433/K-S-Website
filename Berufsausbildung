@@ -1,0 +1,411 @@
+<!doctype html>
+
+<html lang="de">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Berufsausbildung</title>
+        <style>
+            .hover-field {
+                background-color: white;
+                border: 1px solid #ccc;
+                transition: background-color 0.5s;
+                cursor: pointer;
+            }
+            .hover-field:hover {
+                background-color: #dddddd;
+            } 
+            body {
+                margin: 0;
+            } 
+            .container {
+                display: flex;
+                align-items: center;
+            }
+            .container_img {
+                max-width: 100%;
+                height: auto;
+                width: 100px;
+                padding: 30px;
+                padding-right: 20%;
+                cursor: pointer;
+            }
+            .text {
+                display: flex;
+                list-style: none;
+                margin: 0px;
+            }
+            .FeldOverH1 {
+                background-color: rgb(0 94 161 / 100%);
+                width: 100%;
+                height: 15px;
+            }
+            .FeldUnderH1 {
+                background-color: rgb(0 94 161 / 80%);
+                width: 100%;
+                height: 4em;
+                position: absolute;
+                margin-top: 5px;
+            }
+
+            .imgPatrMar {
+                width: 15%;
+                border-radius: 50%;
+                margin-top: 13%;
+                position: absolute;
+                margin-left: 55%;
+            }
+            .postp {
+                position: relative;
+                cursor: pointer;
+                transition: h2Ari 0.5s;
+            }
+            .postp:hover .post-sp {
+                width: 30%;
+                margin-top: 8%;
+                margin-left: 48.5%;
+                display: flex;
+            }
+            .post-sp {
+                margin-top: 8%;
+                margin-left: 7%;
+                position: absolute;
+                display: none;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                transition: 0.7 ease;
+            }
+            .post-sp .h2Pat {
+                background-color: rgb(0 94 161 / 50%);
+                width: 60%;
+                transform: skew(-25deg);
+                text-align: center;
+                color: #FFFFFF;
+                font-size: 1.5em;
+                padding: 1em;
+            }
+
+            .imgAriNie {
+                width: 15%;
+                border-radius: 50%;
+                margin-top: 13%;
+                position: absolute;
+                margin-left: 5%;
+                display: block;
+            }
+            .post {
+                position: relative;
+                cursor: pointer;
+                transition: h2Ari 0.5s;
+            }
+            .post:hover .post-s {
+                width: 30%;
+                margin-top: 8%;
+                margin-left: -1.5%;
+                display: flex;
+            }
+            .post-s {
+                margin-top: 8%;
+                margin-left: 7%;
+                position: absolute;
+                display: none;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                transition: 0.7 ease;
+            }
+            .post-s .h2Ari {
+                background-color: rgb(0 94 161 / 50%);
+                width: 60%;
+                transform: skew(-25deg);
+                text-align: center;
+                color: #FFFFFF;
+                font-size: 1.5em;
+                padding: 1em;
+            }
+            
+            .imgMarPat {
+                width: 15%;
+                border-radius: 50%;
+                margin-top: 13%;
+                position: absolute;
+                margin-left: 30%;
+                display: block;
+            }
+            .post2 {
+                position: relative;
+                cursor: pointer;
+            }
+            .post2:hover .post-s2 {
+                width: 30%;
+                margin-top: 8%;
+                margin-left: 23.5%;
+                display: flex;
+            }
+            .post-s2 {
+                margin-top: 8%;
+                margin-left: 37%;
+                position: absolute;
+                display: none;
+                justify-content: center;
+                align-items: center;
+            }
+            .post-s2 .h2Mar {
+                background-color: rgb(0 94 161 / 50%);
+                width: 60%;
+                transform: skew(-25deg);
+                text-align: center;
+                color: #FFFFFF;
+                font-size: 1.5em;
+                padding: 1em;
+            }
+
+            .imgHenOtt {
+                width: 15%;
+                border-radius: 50%;
+                margin-top: 13%;
+                position: absolute;
+                margin-left: 80%;
+            }
+            .posth {
+                position: relative;
+                cursor: pointer;
+                transition: h2Ari 0.5s;
+            }
+            .posth:hover .post-sh {
+                width: 30%;
+                margin-top: 8%;
+                margin-left: 73.5%;
+                display: flex;
+            }
+            .post-sh {
+                margin-top: 8%;
+                margin-left: 7%;
+                position: absolute;
+                display: none;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                transition: 0.7 ease;
+            }
+            .post-sh .h2Hen {
+                background-color: rgb(0 94 161 / 50%);
+                width: 60%;
+                transform: skew(-25deg);
+                text-align: center;
+                color: #FFFFFF;
+                font-size: 1.5em;
+                padding: 1em;
+            }
+            .AusbildungsberufeH2 {
+                position: absolute;
+                margin-top: 38%;
+                height: 3.5em;
+                width: 25%;
+                background-color:  rgb(0 94 161 / 80%);
+            }
+            .FeldAusbildungsberufe {
+                position: absolute;
+                margin-top: 40%;
+                margin-left: 2%;
+                height: 40em;
+                width: 35%;
+                background-color:  rgb(0 94 161 / 50%);
+            }
+            .FeldUnterAusbildung {
+                position: absolute;
+                margin-top: 79%;
+                margin-left: 2%;
+                height: 5em;
+                width: 27%;
+                background-color:  rgb(0 94 161 / 50%);
+            }
+            .StudiengangeH2 {
+                position: absolute;
+                margin-top: 38%;
+                margin-left: 49%;
+                height: 3.5em;
+                width: 27%;
+                background-color:  rgb(0 94 161 / 80%);
+            }
+            .FeldStudiengange {
+                position: absolute;
+                margin-top: 40%;
+                margin-left: 52%;
+                height: 43em;
+                width: 35%;
+                background-color:  rgb(0 94 161 / 50%);
+            }
+            .FeldUnterStudium {
+                position: absolute;
+                margin-top: 82%;
+                margin-left: 52%;
+                height: 5em;
+                width: 27%;
+                background-color:  rgb(0 94 161 / 50%);
+            }
+
+            .Events {
+                width: 25%;
+                height: 3.5em;
+                background-color: rgb(0 94 161 / 80%);
+                margin-top: 95%;
+                position: absolute;
+            }
+            .FeldEvents {
+                position: absolute;
+                margin-top: 97%;
+                margin-left: 2%;
+                height: 20em;
+                width: 85%;
+                background-color:  rgb(0 94 161 / 50%);
+            }
+            .FeldNix {
+                position: absolute;
+                margin-top: 120%;
+                background-color: #FFFFFF;
+                width:100%;
+                height: 1em;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header class="container">
+            <a style="padding-right: 20%" href="\neuste copy.html"><img class="container_img" src="https://start.k-plus-s.net/assets/images/logo.svg" /></a>
+            <ul class="text">
+                <li class="hover-field" style="margin: 0px; padding: 30px; border: none">Berufsausbildung</li>
+                <li class="hover-field" style="margin: 0px; padding: 30px; border: none">
+                    <a href="Unterseiten/Unterseite_1.html" style="text-decoration: none; color: #333"
+                        >Nachhaltigkeit</a
+                    >
+                </li>
+                <li class="hover-field" style="margin: 0px; padding: 30px; border: none">Unternehmen</li>
+            </ul>
+        </header>
+
+        <div class="FeldOverH1"></div>
+        <div class="FeldUnderH1"></div>
+        <h1 style="margin-left: 20px; margin-top: 6px; margin-bottom: 0px; position: absolute; color: #FFFFFF; font-size: 3em;">Berufsausbildung</h1>
+
+        <div class="post">
+            <img class="imgAriNie" src="https://www.kpluss.com/shared/.images/contacts/niemeyer-ariane-1-1.jpg?__scale=w:522,h:522,t:2,q:80">
+            <div class="post-s">
+                <h2 class="h2Ari">Ariane Niemeyer <br> Ausbildungsleiterin KS</h2>
+            </div>
+        </div>
+
+        <div class="post2">
+            <img class="imgMarPat" src="/img/MarPat.jfif">
+            <div class="post-s2">
+                <h2 class="h2Mar">Martin Patalong <br> Ausbilder CSI</h2>
+            </div>
+        </div>
+
+        <div class="posth">
+            <img class="imgHenOtt" src="/img/HenOtt.jfif">
+            <div class="post-sh">
+                <h2 class="h2Hen">Henri Ott <br> Ausbilder Logistik</h2>
+            </div>
+        </div>
+
+        <div class="postp">
+            <img class="imgPatrMar" src="/img/PatMar.jfif">
+            <div class="post-sp">
+                <h2 class="h2Pat">Patrick Markus <br> Ausbilder IT</h2>
+            </div>
+        </div>
+
+
+        <div class="AusbildungsberufeH2"></div>
+        <h2 style="margin-top: 39%;position: absolute; margin-left: 4%; color: #FFFFFF; z-index: 10">Ausbildungsberufe</h2>
+        <div class="FeldAusbildungsberufe"></div>
+        <p style="position: absolute; z-index: 10; margin-top: 45%;margin-left: 8%; color: #FFFFFF; text-align: right; font-size: 1.5em">
+            Anlagenmechaniker:in
+            <br> 
+            <br>
+            Bauger&auml;teführer:in
+            <br> 
+            <br>
+            Industriemechaniker:in
+            <br>
+            <br>
+            Kfz-Mechatroniker:in
+            <br>
+            <br>
+            Elektroniker:in
+            <br>
+            <br>
+            Fachkraft für Lagerlogistik
+            <br>
+            <br>
+            Indutriekaufleute
+            <br>
+            <br>
+            Bergbautechnologe:in
+            <br>
+            <br>
+            Chemikant:in 
+            <br>
+            <br>
+            Chemisch-technische:r Assistent:in
+        </p>
+        <div class="FeldUnterAusbildung"></div>
+        <p style="position: absolute; z-index: 10; margin-top: 80%; color: #FFFFFF; font-size: 1.5em; margin-left: 4%">
+            => 2 bis 3,5 Jahre
+            <br>
+            => Haupt- oder Realschulabschluss
+        </p>
+        
+        <div class="StudiengangeH2"></div>
+        <h2 style="margin-top: 39%;position: absolute; margin-left: 54%; color: #FFFFFF; z-index: 10"> Duale Studieng&auml;nge</h2>
+        <div class="FeldStudiengange"></div>
+        <p style="position: absolute; z-index: 11; margin-top: 45%;margin-left: 58%; color: #FFFFFF; text-align: right; font-size: 1.5em">
+            Elektrotechnik
+            <br>
+            <br>
+            Geotechnik
+            <br>
+            <br>
+            Wirtschaftsinformatik
+            <br>
+            <br>
+            Geoinformatik/Vermessungstechnik 
+            <br>
+            <br>
+            Maschinenbau 
+            <br>
+            <br>
+            Bauingenieurwesen 
+            <br>
+            <br>
+            BWL-Handel Agrarwirtschaft
+            <br>
+            <br>
+            Business Administration 
+            <br>
+            <br>
+            Betriebswirtschaft
+            <br>
+            <br>
+            Logistikmanagement
+            <br>
+            <br>
+            Management und Digitalisierung
+        </p>
+        <div class="FeldUnterStudium"></div> 
+            <p style="position: absolute; z-index: 10; margin-top: 83%; color: #FFFFFF; font-size: 1.5em; margin-left: 54%">
+            => 3,5 Jahre
+            <br>
+            => (Fach-) Abitur
+        </p>
+
+        <div class="Events"></div>
+        <h2 style="margin-top: 96%; position: absolute; margin-left: 4%; color: #FFFFFF; z-index: 1;">Events</h2>
+        <div class="FeldEvents"></div>
+
+        <div class="FeldNix"></div>
+    </body>
+</html>
+
